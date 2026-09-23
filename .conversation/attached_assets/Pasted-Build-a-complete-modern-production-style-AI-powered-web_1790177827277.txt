@@ -1,0 +1,1279 @@
+Build a complete, modern, production-style AI-powered web application called **SkillGap AI**.
+
+### 1. PRODUCT IDEA
+
+SkillGap AI helps college students understand what skills they are missing for their desired career.
+
+The user provides:
+
+* Degree / branch
+* Current technical and soft skills
+* Target job / career
+* Projects completed
+* Experience level
+* Interests
+
+The application analyzes the student's current profile against the requirements of the selected career and generates:
+
+1. Skill-gap analysis
+2. Skill priority levels
+3. Personalized learning roadmap
+4. Recommended projects
+5. Weekly learning plan
+6. Progress tracker
+7. Career readiness percentage
+8. Recommended resources
+
+The core concept is:
+
+**Current Skills → Target Career → Skill Gap → Priority → Learning Roadmap → Projects → Progress**
+
+Do NOT make this look like a generic AI chatbot. The website should feel like a real AI career-planning SaaS product designed specifically for college students.
+
+---
+
+# 2. BRANDING
+
+Website name:
+
+**SkillGap AI**
+
+Main tagline:
+
+**“Know what you're missing. Learn what matters.”**
+
+Secondary tagline:
+
+**“Turn your career goal into a personalized learning roadmap.”**
+
+Create a simple professional logo using:
+
+* AI-inspired symbol
+* Skill progression / pathway concept
+* Modern typography
+* Minimal geometric design
+
+Use the logo throughout the application.
+
+---
+
+# 3. DESIGN DIRECTION
+
+Create a premium, modern, futuristic educational SaaS interface.
+
+Visual style:
+
+* Clean
+* Minimal
+* Premium
+* Modern
+* Slightly futuristic
+* Student-friendly
+* Professional enough for a startup
+
+Avoid:
+
+* Generic Bootstrap appearance
+* Excessive gradients
+* Overly colorful UI
+* Cartoon-style graphics
+* Cluttered layouts
+* Generic AI chatbot design
+
+Use:
+
+* Glassmorphism selectively
+* Soft shadows
+* Rounded cards
+* Subtle borders
+* Smooth transitions
+* Micro-interactions
+* Clean typography
+* Large whitespace
+* Beautiful data visualization
+
+Suggested color palette:
+
+Primary:
+#6C63FF
+
+Secondary:
+#00C2FF
+
+Background:
+#F8FAFC
+
+Dark text:
+#111827
+
+Secondary text:
+#64748B
+
+Success:
+#22C55E
+
+Warning:
+#F59E0B
+
+Danger:
+#EF4444
+
+Also create a dark mode with a professional dark background.
+
+Use CSS variables for the color system so the theme can easily be changed later.
+
+---
+
+# 4. RESPONSIVE DESIGN
+
+The website must work perfectly on:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+Use responsive layouts throughout.
+
+The dashboard should look especially good on a 1440px desktop screen.
+
+Do not simply shrink desktop elements for mobile. Create proper responsive layouts.
+
+---
+
+# 5. TECHNOLOGY STACK
+
+Use a modern web stack.
+
+Preferred:
+
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* Lucide icons
+* Recharts or another modern charting library
+* Node.js backend where necessary
+
+Use clean component architecture.
+
+Create reusable components such as:
+
+Navbar
+Sidebar
+Card
+SkillBadge
+ProgressBar
+RoadmapStep
+ProjectCard
+SkillGapCard
+DashboardStat
+Chart
+Modal
+FormInput
+Select
+MultiSelect
+Toast
+LoadingState
+EmptyState
+
+Keep frontend, backend, API and components organized.
+
+---
+
+# 6. MAIN USER FLOW
+
+The primary user journey should be:
+
+Landing Page
+↓
+Create Profile
+↓
+Career Assessment
+↓
+AI Skill Analysis
+↓
+Skill Gap Dashboard
+↓
+Learning Roadmap
+↓
+Project Recommendations
+↓
+Weekly Plan
+↓
+Progress Tracking
+
+Make this journey visually clear.
+
+---
+
+# 7. LANDING PAGE
+
+Create a high-quality landing page.
+
+Hero section:
+
+Badge:
+
+**AI-Powered Career Roadmap**
+
+Headline:
+
+**Know What You're Missing.
+Learn What Matters.**
+
+Subheading:
+
+**SkillGap AI analyzes your current skills against your target career and creates a personalized roadmap to help you become job-ready.**
+
+Primary CTA:
+
+**Analyze My Skills**
+
+Secondary CTA:
+
+**Explore Careers**
+
+Hero visual:
+
+Create an interactive dashboard preview showing:
+
+Current Skills
+→
+Skill Gap
+→
+Learning Roadmap
+→
+Career Ready
+
+Add floating UI cards around the dashboard preview.
+
+Example:
+
+**Career Readiness**
+78%
+
+**Skills Matched**
+12 / 18
+
+**Next Skill**
+SQL
+
+**Roadmap**
+Week 4 of 12
+
+---
+
+# 8. LANDING PAGE SECTIONS
+
+After hero, include:
+
+### How It Works
+
+Three or four steps:
+
+01
+Build Your Profile
+
+02
+Choose Your Career
+
+03
+Discover Your Skill Gap
+
+04
+Follow Your Roadmap
+
+Use attractive icons and animations.
+
+---
+
+### Why SkillGap AI?
+
+Show cards:
+
+**Personalized**
+No generic learning paths.
+
+**Career-Focused**
+Skills are connected directly to a target job.
+
+**Actionable**
+Know exactly what to learn next.
+
+**Project-Based**
+Build projects that strengthen your missing skills.
+
+---
+
+### Example Skill Gap
+
+Show an example:
+
+Target:
+**AI/ML Engineer**
+
+Current Skills:
+Python
+HTML
+CSS
+Git
+
+Missing:
+Machine Learning
+Statistics
+NumPy
+Pandas
+Scikit-learn
+SQL
+Deep Learning
+
+Then visually show:
+
+Current Skills → Missing Skills → Roadmap
+
+---
+
+### Roadmap Preview
+
+Show a beautiful timeline:
+
+Week 1–2
+Python for Data Science
+
+Week 3
+NumPy + Pandas
+
+Week 4–5
+Statistics
+
+Week 6–7
+Machine Learning
+
+Week 8–9
+Deep Learning
+
+Week 10–12
+Capstone Project
+
+---
+
+### Final CTA
+
+Headline:
+
+**Your career has a destination.
+Let AI build the route.**
+
+Button:
+
+**Create My Roadmap**
+
+---
+
+# 9. AUTHENTICATION
+
+Create:
+
+* Sign Up
+* Login
+* Forgot Password
+* Logout
+
+Allow users to create their own profile.
+
+If a real authentication backend is not available, implement a clean demo authentication flow using local storage/session state, but structure the code so real authentication can be added later.
+
+---
+
+# 10. PROFILE SETUP
+
+Create a multi-step onboarding form.
+
+Step 1:
+
+### About You
+
+Fields:
+
+Full Name
+College
+Degree
+Branch
+Year of Study
+Graduation Year
+
+Step 2:
+
+### Your Skills
+
+Allow students to select/add skills.
+
+Examples:
+
+Python
+Java
+C
+C++
+JavaScript
+React
+HTML
+CSS
+SQL
+Git
+GitHub
+Machine Learning
+Deep Learning
+Data Structures
+Communication
+Leadership
+Problem Solving
+
+Allow custom skills.
+
+Show selected skills as removable badges.
+
+Step 3:
+
+### Your Experience
+
+Options:
+
+Beginner
+Intermediate
+Advanced
+
+Step 4:
+
+### Your Career Goal
+
+Allow searching/selecting:
+
+AI/ML Engineer
+Software Developer
+Frontend Developer
+Backend Developer
+Full Stack Developer
+Data Scientist
+Data Analyst
+Cybersecurity Analyst
+Cloud Engineer
+DevOps Engineer
+UI/UX Designer
+Product Manager
+
+Also allow a custom target job.
+
+Step 5:
+
+### Your Projects
+
+For every project allow:
+
+Project name
+Description
+Technologies used
+Difficulty
+GitHub/demo URL
+
+Allow adding multiple projects.
+
+---
+
+# 11. AI ANALYSIS PAGE
+
+After profile completion, show a beautiful AI analysis animation.
+
+Example:
+
+**Analyzing your career profile...**
+
+Animation stages:
+
+✓ Understanding your current skills
+✓ Analyzing target career
+✓ Identifying missing skills
+✓ Prioritizing skills
+✓ Building your roadmap
+✓ Selecting projects
+
+Then show:
+
+**Your personalized career analysis is ready.**
+
+CTA:
+
+**View My Skill Gap**
+
+Make this feel like an actual AI analysis rather than an instant page change.
+
+---
+
+# 12. DASHBOARD
+
+Create the main dashboard.
+
+Sidebar navigation:
+
+Dashboard
+My Skills
+Skill Gap
+Roadmap
+Projects
+Weekly Plan
+Progress
+Career Profile
+Settings
+
+Top navbar:
+
+Logo
+Search
+Notifications
+Profile avatar
+
+Dashboard header:
+
+**Good morning, [Name] 👋**
+
+Subtitle:
+
+**Here's your progress toward becoming a [Target Job].**
+
+---
+
+# 13. DASHBOARD STATISTICS
+
+Show four major cards:
+
+### Career Readiness
+
+78%
+
+### Skills Matched
+
+14 / 20
+
+### Roadmap Progress
+
+42%
+
+### Projects Completed
+
+3 / 6
+
+Use animated progress indicators.
+
+---
+
+# 14. CAREER READINESS VISUALIZATION
+
+Create a large circular progress chart.
+
+Example:
+
+**78%**
+
+Career Ready
+
+Below it:
+
+You are progressing well. Focus next on:
+
+**Machine Learning**
+**SQL**
+**Statistics**
+
+Do not make claims that the percentage represents a real industry certification. Clearly present it as an estimated score based on the user's profile and selected career requirements.
+
+---
+
+# 15. SKILL GAP PAGE
+
+This is the core feature.
+
+Show:
+
+### Skills You Have
+
+Use green/positive cards.
+
+Example:
+
+Python
+HTML
+CSS
+Git
+JavaScript
+
+### Skills You Need
+
+Show skills grouped by priority.
+
+HIGH PRIORITY
+
+Machine Learning
+Data Structures
+SQL
+
+MEDIUM PRIORITY
+
+Statistics
+Pandas
+NumPy
+
+LOW PRIORITY
+
+Docker
+Cloud Basics
+
+Each skill card should show:
+
+Skill name
+Priority
+Why it matters
+Current level
+Required level
+Recommended learning time
+"Start Learning" button
+
+---
+
+# 16. SKILL GAP VISUALIZATION
+
+Create a visual comparison:
+
+Current Level vs Required Level
+
+Example:
+
+Python
+██████████ 90%
+
+Machine Learning
+████ 35% → █████████ 90%
+
+SQL
+███ 25% → ████████ 80%
+
+Statistics
+██ 20% → ███████ 75%
+
+Use charts where useful.
+
+---
+
+# 17. AI EXPLANATIONS
+
+Every important missing skill should have:
+
+### Why you need this
+
+Example:
+
+"You already have Python fundamentals. Machine learning is the next major skill because your target AI/ML Engineer role requires you to build and evaluate predictive models."
+
+Keep explanations personalized based on the user's profile.
+
+---
+
+# 18. LEARNING ROADMAP
+
+Create an attractive vertical roadmap.
+
+Example:
+
+CAREER GOAL
+AI/ML Engineer
+
+↓
+
+FOUNDATION
+
+Python
+Data Structures
+Git
+
+↓
+
+DATA FOUNDATION
+
+NumPy
+Pandas
+SQL
+Statistics
+
+↓
+
+MACHINE LEARNING
+
+Regression
+Classification
+Clustering
+Model Evaluation
+
+↓
+
+DEEP LEARNING
+
+Neural Networks
+CNN
+RNN
+Transformers
+
+↓
+
+CAPSTONE
+
+Build an End-to-End AI Project
+
+Each roadmap stage should show:
+
+Duration
+Skills
+Learning objectives
+Recommended projects
+Completion percentage
+
+Allow users to mark each milestone complete.
+
+---
+
+# 19. PROJECT RECOMMENDATIONS
+
+AI should recommend projects based on missing skills.
+
+For every project show:
+
+Project title
+Difficulty
+Estimated time
+Skills developed
+Description
+Why this project is useful
+Technologies
+Start Project button
+
+Example:
+
+**Student Performance Predictor**
+
+Difficulty:
+Intermediate
+
+Skills:
+Python
+Pandas
+Machine Learning
+Data Visualization
+
+Reason:
+
+"This project strengthens three of your current skill gaps: Pandas, machine learning and data visualization."
+
+Include:
+
+Beginner
+Intermediate
+Advanced
+
+filters.
+
+---
+
+# 20. WEEKLY LEARNING PLAN
+
+Create a weekly planner.
+
+Example:
+
+### Week 4
+
+Goal:
+Learn Pandas fundamentals
+
+Monday
+DataFrames
+
+Tuesday
+Data cleaning
+
+Wednesday
+Filtering and grouping
+
+Thursday
+Practice problems
+
+Friday
+Mini project
+
+Saturday
+Revision
+
+Sunday
+Progress review
+
+Show:
+
+Weekly progress
+Hours completed
+Tasks completed
+
+Allow users to mark tasks complete.
+
+---
+
+# 21. PROGRESS TRACKER
+
+Create a beautiful progress dashboard.
+
+Track:
+
+Skills completed
+Roadmap completion
+Projects completed
+Learning hours
+Weekly streak
+
+Charts:
+
+Learning progress over time
+Skills completed
+Weekly activity
+
+Example:
+
+**12 Day Learning Streak 🔥**
+
+**32 Hours Learned**
+
+**8 Skills Completed**
+
+---
+
+# 22. MY SKILLS PAGE
+
+Show all skills as interactive cards.
+
+Categories:
+
+Programming
+Web Development
+Data
+AI/ML
+Tools
+Soft Skills
+
+Each skill should show:
+
+Current level
+Progress
+Last practiced
+Target level
+
+Allow users to update their skill level.
+
+---
+
+# 23. CAREER EXPLORER
+
+Create a page where students can explore career paths.
+
+Career cards:
+
+AI/ML Engineer
+Software Engineer
+Data Scientist
+Data Analyst
+Frontend Developer
+Backend Developer
+Full Stack Developer
+Cybersecurity
+Cloud Engineering
+DevOps
+
+Each career card shows:
+
+Typical skills
+Learning areas
+Example projects
+Roadmap length
+
+Clicking a career should open a detailed career page.
+
+---
+
+# 24. AI CHAT ASSISTANT
+
+Add a small AI assistant, but DO NOT make it the main product.
+
+Use it as a supporting feature.
+
+Button:
+
+**Ask SkillGap AI**
+
+Example questions:
+
+"What should I learn this week?"
+
+"Why do I need SQL?"
+
+"Suggest a project for my skill level."
+
+"How close am I to my target career?"
+
+"Explain machine learning simply."
+
+The assistant should use the student's profile and roadmap when generating answers.
+
+---
+
+# 25. SEARCH
+
+Global search should allow users to search:
+
+Skills
+Careers
+Projects
+Roadmap topics
+
+Show useful search results.
+
+---
+
+# 26. NOTIFICATIONS
+
+Create notifications such as:
+
+"Your weekly goal is almost complete."
+
+"You completed Python fundamentals 🎉"
+
+"SQL is your next recommended skill."
+
+"Your learning streak is 7 days."
+
+Use a notification dropdown.
+
+---
+
+# 27. DARK MODE
+
+Implement a polished dark mode.
+
+The dark theme should not simply invert colors.
+
+Use:
+
+Dark background
+Dark cards
+Subtle borders
+Readable text
+Accent colors
+Proper chart colors
+
+Remember the user's theme preference.
+
+---
+
+# 28. AI IMPLEMENTATION
+
+Create a modular AI service.
+
+The AI analysis should receive:
+
+student profile
+current skills
+target career
+projects
+experience
+
+and return structured JSON containing:
+
+careerReadiness
+matchedSkills
+missingSkills
+skillPriorities
+learningRoadmap
+projectRecommendations
+weeklyPlan
+explanations
+
+Do not hardcode the final UI around one career.
+
+The system must work for different careers.
+
+If an external AI API key is unavailable, create a realistic fallback analysis engine using predefined career-skill datasets.
+
+The application must still work completely in demo mode.
+
+Create clear configuration for an AI API key using environment variables.
+
+Never expose API keys in frontend code.
+
+---
+
+# 29. CAREER-SKILL DATABASE
+
+Create a structured dataset containing career requirements.
+
+At minimum include:
+
+AI/ML Engineer
+Software Engineer
+Frontend Developer
+Backend Developer
+Full Stack Developer
+Data Scientist
+Data Analyst
+Cybersecurity Analyst
+Cloud Engineer
+DevOps Engineer
+
+Each career should contain:
+
+Required skills
+Important skills
+Optional skills
+Recommended projects
+Suggested learning sequence
+
+Keep the dataset easy to expand.
+
+---
+
+# 30. DEMO DATA
+
+Create a demo student profile.
+
+Example:
+
+Name:
+Alex
+
+Degree:
+B.Tech CSE
+
+Year:
+2nd Year
+
+Current Skills:
+
+Python
+HTML
+CSS
+JavaScript
+Git
+
+Target:
+
+AI/ML Engineer
+
+Projects:
+
+Portfolio Website
+Student Management System
+
+Use this demo data so the website looks populated when first opened.
+
+Provide a:
+
+**Try Demo**
+
+button on the landing page.
+
+---
+
+# 31. EMPTY STATES
+
+Design beautiful empty states.
+
+Examples:
+
+No projects yet.
+
+**Start building your portfolio.**
+
+Button:
+Add Project
+
+No progress yet.
+
+**Complete your first roadmap milestone to start tracking progress.**
+
+---
+
+# 32. LOADING STATES
+
+Create polished skeleton loaders.
+
+For AI analysis, use animated steps instead of a basic spinner.
+
+---
+
+# 33. ERROR HANDLING
+
+Handle:
+
+Invalid forms
+Missing data
+AI API errors
+Network errors
+Empty results
+
+Show friendly error messages.
+
+Never show raw technical errors to users.
+
+---
+
+# 34. ACCESSIBILITY
+
+Ensure:
+
+Good color contrast
+Keyboard navigation
+Accessible buttons
+Proper labels
+Semantic HTML
+ARIA labels where needed
+
+---
+
+# 35. ANIMATIONS
+
+Use subtle professional animations.
+
+Examples:
+
+Card hover
+Progress animation
+Page transitions
+Roadmap reveal
+Skill cards appearing
+Number counters
+AI analysis animation
+
+Do not over-animate the website.
+
+The website should feel fast and professional.
+
+---
+
+# 36. NAVIGATION
+
+Use React Router or an equivalent routing system.
+
+Routes:
+
+/
+/login
+/signup
+/onboarding
+/analysis
+/dashboard
+/skills
+/skill-gap
+/roadmap
+/projects
+/weekly-plan
+/progress
+/careers
+/career/:id
+/profile
+/settings
+
+---
+
+# 37. DATA STORAGE
+
+Structure the application so user data can be persisted.
+
+For demo mode, use localStorage or an appropriate lightweight solution.
+
+Store:
+
+Profile
+Skills
+Projects
+Target career
+Roadmap progress
+Weekly tasks
+Completed skills
+Theme preference
+
+Make the architecture easy to connect to a real database later.
+
+---
+
+# 38. IMPORTANT UX REQUIREMENT
+
+The website should NEVER feel like:
+
+"Fill form → AI generates paragraph."
+
+Instead, the user should feel like:
+
+"I entered my career goal, and this system actually mapped out what I need to learn."
+
+The most important visual relationship should be:
+
+**YOU ARE HERE**
+↓
+Current Skills
+
+**YOU NEED**
+↓
+Missing Skills
+
+**YOUR PATH**
+↓
+Learning Roadmap
+
+**YOUR PROOF**
+↓
+Projects
+
+**YOUR PROGRESS**
+↓
+Career Readiness
+
+---
+
+# 39. FINAL QUALITY REQUIREMENT
+
+Before finishing:
+
+* Remove placeholder text
+* Remove broken links
+* Remove console errors
+* Make every major button functional
+* Make navigation work
+* Make forms work
+* Make progress updates work
+* Make demo mode work
+* Make dark mode work
+* Make responsive layouts work
+* Make charts render correctly
+* Make AI fallback work
+* Check mobile layout
+* Check desktop layout
+
+Do not stop after creating the landing page.
+
+Build the complete working application.
+
+The final result should look like a polished startup MVP that could be demonstrated to a college faculty member.
+
+Prioritize:
+
+1. Working functionality
+2. Excellent UX
+3. Visual quality
+4. Personalization
+5. Clear AI-driven skill-gap experience
+
+The central product experience must always communicate:
+
+**Current Skills → Career Goal → Skill Gap → Learning Roadmap → Projects → Progress**

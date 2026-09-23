@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "SkillGap AI"
+description = "An AI-powered career planning workspace for college students that maps current skills to target roles, identifies gaps, and turns them into an actionable learning roadmap."
+version = "1.0.0"
+id = "artifacts/skillgap-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20490
+
+[services.development]
+run = "pnpm --filter @workspace/skillgap-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/skillgap-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/skillgap-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20490"
+BASE_PATH = "/"

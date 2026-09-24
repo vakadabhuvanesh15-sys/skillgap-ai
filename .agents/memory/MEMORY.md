@@ -1,1 +1,0 @@
-- [Third-party analytics](third-party-analytics.md) — Keep event tracking provider-optional; prefer PostHog for funnels or Plausible for a lighter privacy-first setup.

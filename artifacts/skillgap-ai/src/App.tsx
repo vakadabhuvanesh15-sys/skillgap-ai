@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import "@/lib/analytics";
 import { BookOpen, BriefcaseBusiness, Check, ChevronLeft, ChevronRight, CircleHelp, Clock3, Code2, Compass, Flame, LayoutDashboard, Lightbulb, ListChecks, Menu, Moon, Network, Pencil, Plus, Search, Settings as SettingsIcon, ShieldCheck, Sparkles, Target, TrendingUp, UserRound, Zap } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip as ChartTooltip, XAxis, YAxis } from "recharts";
 import { Link, Route, Switch, useLocation, useParams, Router as WouterRouter } from "wouter";

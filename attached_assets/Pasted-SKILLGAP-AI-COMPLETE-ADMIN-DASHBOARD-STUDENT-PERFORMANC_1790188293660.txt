@@ -1,0 +1,1039 @@
+SKILLGAP AI — COMPLETE ADMIN DASHBOARD + STUDENT PERFORMANCE + SUPABASE SECURITY MASTER PROMPT
+You are a senior full-stack engineer, database architect, security engineer, and premium SaaS UI/UX designer.
+I already have an existing working website:
+SkillGap AI — Career Roadmap
+Website:
+https://skill-gap-ai-career-roadmap--vakadabhuvanesh.replit.app/
+CRITICAL INSTRUCTION
+DO NOT rebuild the application from scratch.
+DO NOT replace the existing architecture unnecessarily.
+DO NOT remove working AI functionality.
+DO NOT create duplicate authentication, database, roadmap, task, project, or dashboard systems.
+FIRST inspect the existing Replit codebase completely.
+Understand the existing:
+	• frontend framework
+	• backend/server
+	• routing
+	• authentication
+	• Supabase integration
+	• database schema
+	• AI integration
+	• student dashboard
+	• roadmap system
+	• task system
+	• project system
+	• progress calculations
+	• existing admin dashboard
+Then extend the current application.
+Preserve all useful existing functionality and branding.
+The goal is a real, production-style AI career platform using real Supabase data.
+
+1. SUPABASE MUST BE THE SOURCE OF TRUTH
+Use the existing Supabase integration where available.
+Use Supabase for:
+	• Authentication
+	• Profiles
+	• Career profiles
+	• Skill-gap analyses
+	• Roadmaps
+	• Tasks
+	• Task completion
+	• Projects
+	• Progress
+	• Activity logs
+	• Administrator authorization
+	• Student contact information
+Do NOT use:
+	• fake students
+	• fake performance
+	• hard-coded progress
+	• mock student records
+	• fake activity
+	• localStorage as the database
+	• frontend-only admin authorization
+All displayed information must come from actual database records.
+
+2. ADMIN AUTHENTICATION AND AUTHORIZATION
+Create a real administrator authorization system.
+The admin must be associated with the same email/account used to sign into SkillGap AI.
+After authentication:
+	1. Verify the authenticated Supabase user.
+	2. Verify that the authenticated user has administrator authorization.
+	3. Only then allow access to /admin.
+	4. Load the Admin Dashboard.
+	5. Display the Admin Profile.
+DO NOT determine administrator status using:
+	• localStorage
+	• sessionStorage
+	• hidden frontend buttons
+	• frontend variables
+	• hard-coded passwords
+	• hard-coded email checks
+	• query parameters
+	• client-side-only checks
+Use a secure server/database-controlled administrator role mechanism.
+A suitable implementation may use:
+	• secure admin role table
+	• server-controlled role
+	• Supabase custom claims
+	• secure database authorization
+Choose the approach that best fits the existing architecture.
+Normal students must NOT be able to promote themselves to administrators.
+
+3. ADMIN ROUTE PROTECTION
+Create/protect:
+/admin
+and:
+/admin/students
+and all other admin-only routes.
+Admin access must be checked server-side/database-side.
+Expected behavior:
+Authorized administrator
+Login → /admin → Admin Dashboard
+Normal student
+Login → student dashboard
+Admin Dashboard navigation is hidden.
+Opening /admin directly:
+→ Access Denied
+Logged-out visitor
+Opening /admin:
+→ Login/Access Denied state
+Refresh while administrator is logged in
+→ Admin session remains active.
+Never rely only on frontend route guards.
+
+4. ADMIN SIDEBAR
+For authorized administrators show:
+	• Dashboard
+	• Students
+	• Analytics
+	• Skill Gaps
+	• Roadmaps
+	• Tasks
+	• Projects
+	• Activity
+	• Settings
+	• Admin Profile
+	• Logout
+Also include:
+View Student Dashboard
+This must take the administrator back to the normal SkillGap AI student interface.
+Do not expose admin analytics or student-management controls to normal students.
+
+5. ADMIN PROFILE
+Show:
+Admin Profile
+Name
+Email
+Role: Administrator
+The email must come from the authenticated Supabase account.
+Do not hard-code the email.
+
+6. MAIN ADMIN DASHBOARD
+Extend the existing Admin Dashboard rather than rebuilding it.
+Add:
+Student Performance Overview
+Cards:
+	• Total Students
+	• Active Students
+	• Average Learning Progress
+	• Total Tasks Completed
+	• Total Projects Completed
+Every number must be calculated from actual Supabase data.
+Never use sample values.
+
+7. RECENT STUDENT ACTIVITY
+Add:
+Recent Student Activity
+Show real database events.
+Examples of event types:
+	• Student registered
+	• Career profile created
+	• Skill-gap analysis generated
+	• Roadmap generated
+	• Task completed
+	• Project started
+	• Project completed
+Example display:
+Bhuvanesh completed Python Fundamentals
+Rahul generated a roadmap
+Ananya completed a project
+These names/events are examples only.
+NEVER create fake activity to populate the interface.
+Use actual activity records and timestamps.
+If the existing application has no activity system, create a lightweight:
+activity_logs
+table:
+	• id
+	• user_id
+	• event_type
+	• description
+	• created_at
+
+8. STUDENT PERFORMANCE PAGE
+Create:
+/admin/students
+Page title:
+Student Performance
+Subtitle:
+Monitor student learning progress, performance, and contact information.
+Create a clean desktop table.
+Columns:
+	• Student
+	• Email
+	• Phone
+	• Target Career
+	• Progress
+	• Tasks Completed
+	• Skills Learned
+	• Projects Completed
+	• Last Activity
+	• Status
+Example layout only:
+Student | Email | Phone | Target Career | Progress | Tasks | Skills | Projects | Last Activity | Status
+DO NOT insert example students.
+Use actual Supabase records.
+
+9. STUDENT PERFORMANCE CALCULATIONS
+Everything must be dynamically calculated.
+For each student:
+Progress
+Formula:
+completed tasks / total tasks × 100
+Round only for display.
+Example:
+5 / 12 = 41.67%
+Display:
+42%
+Do NOT store or manually assign fake progress.
+Tasks
+Display:
+completed tasks / total tasks
+Example:
+5 / 12
+Skills Learned
+A skill is learned only when its associated learning task has actually been completed.
+Do not count every AI-recommended skill.
+Projects
+Display:
+completed projects / total projects
+Only explicitly completed projects count as completed.
+Last Activity
+Use the most recent real activity timestamp.
+Status
+Use only factual activity status:
+	• Active
+	• Inactive
+Do NOT create subjective labels such as:
+	• Best Student
+	• Poor Student
+	• Top Student
+	• Excellent Student
+	• Weak Student
+	• Ranking
+	• Score
+	• Tier
+This is a factual learning-performance management system, not a ranking system.
+
+10. STUDENT PROFILE ROUTE
+When an administrator clicks a student:
+Open:
+/admin/students/:studentId
+Create a detailed:
+Student Profile
+Header/card:
+	• Student Name
+	• Email
+	• Phone
+	• Target Career
+	• Degree
+	• Branch
+	• Account Created
+	• Last Active
+	• Status
+Use clear icons for:
+	• Email
+	• Phone
+	• Career
+	• Education
+	• Activity
+
+11. STUDENT MESSAGE
+Inside the student profile add:
+Student Message
+Each student may optionally provide a short personal message.
+Database field:
+student_message
+Type:
+TEXT
+Allow NULL.
+Maximum length:
+300–500 characters.
+The message must be written by the student.
+DO NOT automatically generate this message.
+DO NOT generate an AI message on behalf of the student.
+If there is no message:
+Show an intentional empty state:
+No message provided by this student.
+
+12. PHONE NUMBER
+Add an optional field:
+phone_number
+to the appropriate student/application profile.
+Do not require it unless the existing application already requires it.
+Support Indian formats:
++91XXXXXXXXXX
+and:
+XXXXXXXXXX
+Validate appropriately.
+Normalize the stored format where practical.
+Phone numbers are PRIVATE.
+Only authorized administrators can view them.
+Never expose phone numbers on:
+	• public website
+	• public leaderboard
+	• public profile
+	• student-to-student pages
+	• search engines
+	• unauthenticated pages
+
+13. STUDENT CONTACT ACTIONS
+Inside the protected administrator student profile add:
+Email Student
+Use the student's real email.
+Open the appropriate email application using a mail action/link.
+Call Student
+Use the student's real phone number.
+Open the phone dialer on supported devices.
+Do not display these actions outside the protected admin interface.
+
+14. LEARNING PERFORMANCE
+Inside Student Profile add:
+Learning Performance
+Display:
+Overall Progress
+Dynamic percentage.
+Use a clean progress bar or progress circle.
+Tasks
+completed / total
+Skills Learned
+Dynamic count based on completed learning tasks.
+Projects
+completed / total
+Learning Streak
+ONLY display this if the existing database actually tracks learning activity sufficiently to calculate it.
+If no reliable streak data exists:
+DO NOT invent a streak.
+Either omit the card or display an appropriate unavailable state.
+
+15. ROADMAP PERFORMANCE
+Add:
+Roadmap Performance
+Show every roadmap phase.
+For each phase calculate:
+completed tasks in phase / total tasks in phase × 100
+Example layout:
+Foundation — 80%
+Data Skills — 40%
+Machine Learning — 20%
+The numbers above are examples only.
+Never hard-code them.
+The percentage must come from the student's actual tasks.
+
+16. COMPLETED TASKS
+Add:
+Completed Tasks
+Show actual completed tasks.
+For every completed task show:
+	• Task name
+	• Associated skill
+	• Difficulty if available
+	• Completed date
+Use the actual:
+completed_at
+timestamp.
+Example:
+✓ Python Fundamentals
+Completed: September 22, 2026
+✓ NumPy Basics
+Completed: September 23, 2026
+Do not create fake completed tasks.
+Do not automatically mark tasks completed.
+
+17. UPCOMING / PENDING TASKS
+Add:
+Upcoming Tasks
+Show actual incomplete tasks.
+Example layout:
+○ Pandas
+○ Statistics
+○ Machine Learning
+Only display tasks that actually exist in the student's roadmap and are not completed.
+
+18. PROJECT PERFORMANCE
+Add:
+Project Performance
+For every project show:
+	• Project Name
+	• Skills
+	• Difficulty
+	• Status
+	• Completion Date
+Possible statuses:
+	• Not Started
+	• In Progress
+	• Completed
+Only show a completion date when the project is actually completed.
+Never automatically mark projects completed.
+
+19. SKILL DEVELOPMENT
+Add:
+Skill Development
+Create three factual categories.
+Learned Skills
+Skills connected to completed learning tasks.
+In Progress
+Skills where related learning work exists but required learning tasks are not fully completed.
+Skill Gaps
+Skills identified by the actual student's skill-gap analysis that have not yet been demonstrated through completed learning tasks.
+Do not simply place AI recommendations into "Learned Skills".
+Do not invent skills.
+Use actual roadmap/task/skill-gap data.
+
+20. STUDENT CAREER PROFILE
+Show:
+Career Profile
+	• Degree
+	• Branch
+	• Target Career
+	• Current Skills
+	• Experience Level if available
+	• Existing Projects
+All values must come from the student's saved profile.
+
+21. SKILL GAP ANALYSIS
+Show:
+Current Skills
+Actual submitted skills.
+Skill Gaps
+Actual AI-generated missing skills.
+Priority Skills
+Actual AI-generated priority skills.
+Do not regenerate the AI analysis simply because the admin opens the profile.
+Read the saved analysis from Supabase.
+
+22. STUDENT ROADMAP
+Show the student's actual roadmap.
+Example visual structure:
+✓ Python Fundamentals
+✓ NumPy Basics
+○ Pandas
+○ Statistics
+○ Machine Learning
+Use actual task completion status.
+The admin is viewing the roadmap only.
+Admin viewing the roadmap must NEVER modify the student's progress.
+
+23. STUDENT ACTIVITY TIMELINE
+Add:
+Recent Activity
+Use real activity records.
+Examples:
+✓ Registered
+✓ Created career profile
+✓ Generated skill-gap analysis
+✓ Generated roadmap
+✓ Completed Python Fundamentals
+✓ Started project
+✓ Completed project
+Show actual timestamps.
+Sort newest first.
+
+24. SEARCH STUDENTS
+On:
+/admin/students
+Add:
+Search students...
+Search by:
+	• Name
+	• Email
+	• Phone
+	• Target Career
+	• Degree
+	• Branch
+Use database queries where appropriate.
+Do not download every student's complete roadmap/tasks unnecessarily.
+
+25. FILTERS
+Add filters:
+Progress
+	• 0–25%
+	• 26–50%
+	• 51–75%
+	• 76–100%
+Status
+	• Active
+	• Inactive
+Target Career
+Dynamic values from actual database records.
+Branch
+Dynamic values from actual database records.
+Degree
+Dynamic values where useful.
+
+26. SORTING
+Allow sorting by:
+	• Name
+	• Progress
+	• Tasks Completed
+	• Projects Completed
+	• Last Activity
+	• Registration Date
+Where practical, perform sorting/filtering using database queries.
+Do not create subjective rankings.
+
+27. PAGINATION
+For a growing student database:
+Implement server/database-side pagination.
+Do not load every student's entire:
+	• roadmap
+	• tasks
+	• projects
+	• activity history
+when displaying only the student list.
+Fetch detailed information only when the administrator opens a student profile.
+
+28. MOBILE ADMIN STUDENT VIEW
+On mobile, transform the student table into responsive cards.
+Each card should show:
+	• Student Name
+	• Target Career
+	• Progress
+	• Tasks
+	• Projects
+	• Status
+	• View Profile
+Button:
+View Profile
+Contact information remains inside the authorized student detail view.
+
+29. ADMIN DATABASE SECURITY
+This is CRITICAL.
+Enable RLS on all exposed application tables.
+Student-owned data should generally use:
+auth.uid() = user_id
+for student access.
+Normal students must only access their own records.
+Administrators require a separate secure authorization path.
+Do NOT create:
+USING (true)
+for private student information.
+Do NOT expose private information to the anonymous role.
+Protect:
+	• profiles
+	• career_profiles
+	• skill_gap_analyses
+	• roadmaps
+	• tasks
+	• projects
+	• activity_logs
+	• phone numbers
+	• student messages
+
+30. ADMIN DATA ACCESS
+The administrator must be able to securely read the student data required for the Admin Dashboard.
+If elevated server-side access is required:
+Use a trusted server-side mechanism.
+Before returning any administrator data:
+	1. Verify Supabase authentication.
+	2. Verify administrator authorization.
+	3. Perform the database operation.
+	4. Return only the required information.
+NEVER expose:
+	• Supabase service-role key
+	• Supabase secret key
+	• database password
+	• privileged credentials
+in browser/client-side code.
+
+31. DATABASE STRUCTURE
+First inspect the existing schema.
+Reuse existing tables whenever possible.
+Do NOT create duplicate tables unnecessarily.
+Potential fields/tables:
+profiles
+	• id
+	• full_name
+	• email
+	• phone_number
+	• student_message
+	• created_at
+	• updated_at
+career_profiles
+	• id
+	• user_id
+	• degree
+	• branch
+	• current_skills
+	• target_job
+	• projects_completed
+	• experience_level
+	• created_at
+	• updated_at
+skill_gap_analyses
+	• id
+	• user_id
+	• career_profile_id
+	• current_skills
+	• missing_skills
+	• priority_skills
+	• analysis_summary
+	• created_at
+roadmaps
+	• id
+	• user_id
+	• skill_gap_analysis_id
+	• target_job
+	• title
+	• description
+	• roadmap_data
+	• created_at
+	• updated_at
+tasks
+	• id
+	• roadmap_id
+	• user_id
+	• title
+	• description
+	• skill
+	• difficulty
+	• estimated_minutes
+	• completed
+	• completed_at
+	• created_at
+projects
+	• id
+	• roadmap_id
+	• user_id
+	• title
+	• description
+	• difficulty
+	• estimated_time
+	• skills
+	• status
+	• created_at
+	• updated_at
+activity_logs
+	• id
+	• user_id
+	• event_type
+	• description
+	• created_at
+admin_roles
+Use the secure administrator authorization approach that fits the existing architecture.
+DO NOT allow students to modify their own administrator role.
+
+32. REAL PROGRESS SYSTEM
+Progress must always be calculated from actual tasks.
+Formula:
+completedTasks / totalTasks × 100
+Examples:
+0 / 10 = 0%
+2 / 10 = 20%
+5 / 10 = 50%
+8 / 10 = 80%
+10 / 10 = 100%
+Round only for display.
+Do not accept a progress number sent by the frontend as authoritative.
+The database is the source of truth.
+
+33. TASK COMPLETION
+When a student selects:
+Mark as Complete
+Update the actual task:
+completed = true
+and:
+completed_at = current timestamp
+Only the authenticated student who owns the task may modify it.
+Then:
+	• update UI
+	• recalculate progress
+	• update dashboard
+	• update skills learned
+	• create activity event if activity tracking exists
+Never mark tasks complete automatically.
+
+34. PROJECT COMPLETION
+Projects must use actual status.
+Allowed:
+	• not_started
+	• in_progress
+	• completed
+Only the student can explicitly change their project status according to the existing application rules.
+Do not automatically complete projects.
+
+35. STUDENT DATA ISOLATION
+Student A must never access Student B's:
+	• profile
+	• email
+	• phone
+	• message
+	• career profile
+	• skill-gap analysis
+	• roadmap
+	• tasks
+	• progress
+	• projects
+	• activity
+Do not rely only on frontend filtering.
+Database/RLS authorization must enforce ownership.
+
+36. EXISTING STUDENT DASHBOARD
+Do NOT break the existing student dashboard.
+It should continue to show:
+	• Welcome
+	• Career Goal
+	• Progress
+	• Tasks Completed
+	• Skills Learned
+	• Projects Completed
+	• Continue Learning
+	• Next Task
+All values must be real.
+The administrator's additional analytics must remain separate.
+
+37. NO FAKE DATA
+Search the existing codebase for:
+	• mock students
+	• demo users
+	• fake progress
+	• hard-coded percentages
+	• hard-coded skills
+	• fake completed tasks
+	• fake projects
+	• default student records
+	• localStorage progress
+	• sessionStorage progress
+	• fallback dashboard values
+	• fake activity
+Remove them wherever they are being presented as real user information.
+Example/demo content may remain only if clearly labelled as demo/example and cannot be confused with real data.
+
+38. EXISTING EMPTY STATES
+Do not display fake values while data is loading.
+Use proper loading states.
+Examples:
+Loading students...
+Loading student performance...
+Calculating performance...
+Loading activity...
+If no data exists:
+No students found.
+No completed tasks yet.
+No projects completed yet.
+No student message provided.
+Do not substitute fake values.
+
+39. ADMIN UI DESIGN
+The Admin Dashboard should look different from the student dashboard.
+Design direction:
+	• Premium SaaS
+	• Clean
+	• Professional
+	• Data-focused
+	• Modern
+	• Minimal
+	• Excellent spacing
+	• Clear typography
+	• Subtle borders
+	• Compact cards
+	• Responsive tables
+	• Useful charts only
+	• Minimal shadows
+	• Subtle animations
+Avoid:
+	• excessive gradients
+	• excessive neon
+	• giant cards
+	• unnecessary animations
+	• clutter
+	• excessive decoration
+Use:
+	• profile avatars/initials
+	• progress bars
+	• statistic cards
+	• status badges
+	• clean tables
+	• responsive cards
+	• icons
+	• clear hierarchy
+
+40. PRIVACY
+Student information is private administrator information.
+The following must NEVER appear on public pages:
+	• phone numbers
+	• private student messages
+	• private email information where not already intentionally public
+	• detailed performance
+	• private roadmaps
+	• private tasks
+	• private projects
+	• private activity
+Only authorized administrators can access administrator student-management information.
+Students can see only their own information.
+
+41. ADMIN ANALYTICS
+Preserve or extend existing Analytics.
+Possible real analytics:
+	• student registrations over time
+	• target careers
+	• common skill gaps
+	• task completion rate
+	• project completion rate
+	• average learning progress
+Every chart must be calculated from real Supabase records.
+Do not invent analytics.
+
+42. PERFORMANCE AND DATABASE OPTIMIZATION
+Use:
+	• pagination
+	• indexes
+	• filtered database queries
+	• appropriate joins
+	• efficient aggregation
+	• server-side authorization
+Useful indexes may include:
+	• user_id
+	• target_job
+	• branch
+	• created_at
+	• completed
+	• roadmap_id
+Only create indexes that are actually useful for the current schema/query patterns.
+
+43. ADMIN NAVIGATION VISIBILITY
+For administrators:
+Show:
+Admin Dashboard
+For normal students:
+Hide:
+Admin Dashboard
+However, hiding the navigation item is NOT a security mechanism.
+Direct access to /admin must still be denied.
+
+44. VIEW STUDENT DASHBOARD
+Inside the admin interface provide:
+View Student Dashboard
+This should navigate to the normal student-facing SkillGap AI interface.
+Do not expose administrator-only information in the student interface.
+
+45. AUTH SESSION
+Use the existing Supabase session system.
+On refresh:
+	• restore authentication
+	• restore administrator authorization
+	• restore correct route
+	• preserve session where valid
+When logged out:
+	• clear protected state
+	• prevent /admin
+	• prevent private student data access
+Do not store authentication or admin authorization in localStorage manually.
+
+46. ERROR HANDLING
+Handle:
+	• Supabase connection errors
+	• authentication errors
+	• expired sessions
+	• permission errors
+	• database errors
+	• missing student records
+	• invalid phone number
+	• network errors
+	• failed queries
+Do not expose raw database errors or secret information.
+Show clean user-friendly error messages.
+
+47. ADMIN TESTING
+After implementation, actually test the application.
+Do not simply say "implemented".
+Test:
+TEST 1 — Admin Login
+Authorized administrator logs in.
+Expected:
+/admin works.
+TEST 2 — Student Login
+Normal student logs in.
+Expected:
+Admin Dashboard link hidden.
+/admin → Access Denied.
+TEST 3 — Logout
+Logout.
+Expected:
+/admin → blocked.
+TEST 4 — Refresh
+Administrator refreshes /admin.
+Expected:
+Admin session remains active.
+TEST 5 — Student List
+Admin opens /admin/students.
+Expected:
+Only real Supabase students appear.
+No fake students.
+TEST 6 — Student Profile
+Admin opens a student.
+Expected:
+Real:
+	• name
+	• email
+	• phone
+	• target career
+	• degree
+	• branch
+	• message
+	• progress
+	• tasks
+	• skills
+	• projects
+	• roadmap
+	• activity
+TEST 7 — Student Message
+Create/read a real student message.
+Expected:
+Admin sees exactly what the student provided.
+No AI-generated replacement.
+TEST 8 — Phone Privacy
+Verify phone number is unavailable publicly and to normal students.
+TEST 9 — Progress
+Verify:
+completed tasks / total tasks × 100
+matches the displayed percentage.
+TEST 10 — Skills
+Complete a task.
+Expected:
+Relevant skill becomes learned according to the application's actual skill/task relationship.
+TEST 11 — Projects
+Verify only explicitly completed projects count.
+TEST 12 — Roadmap Phase
+Verify phase percentages are calculated from actual tasks.
+TEST 13 — Search
+Search by:
+	• name
+	• email
+	• phone
+	• target career
+	• branch
+	• degree
+Expected:
+Correct database results.
+TEST 14 — Filters
+Verify progress/status/career/branch filters.
+TEST 15 — Sorting
+Verify:
+	• name
+	• progress
+	• tasks
+	• projects
+	• last activity
+	• registration date
+TEST 16 — Unauthorized URL
+Attempt to manipulate a student ID/URL as a normal student.
+Expected:
+Access denied.
+TEST 17 — RLS
+Verify one student cannot query another student's private records.
+TEST 18 — Mobile
+Test:
+	• admin sidebar
+	• student table/cards
+	• student profile
+	• progress
+	• contact actions
+	• filters
+Expected:
+No horizontal page overflow.
+TEST 19 — Refresh
+Refresh student profile.
+Expected:
+Data remains correct.
+TEST 20 — No Fake Data
+Inspect the UI and verify that no fake performance numbers appear anywhere.
+
+48. FINAL ACCEPTANCE CRITERIA
+The implementation is complete only when:
+✓ Existing SkillGap AI functionality is preserved.
+✓ Existing AI functionality continues working.
+✓ Supabase remains the source of truth.
+✓ Authentication uses Supabase Auth.
+✓ Administrator authorization is secure.
+✓ /admin is protected.
+✓ Normal students cannot access /admin.
+✓ Admin navigation appears only for authorized administrators.
+✓ Admin Profile shows actual authenticated user information.
+✓ Student Performance page exists at /admin/students.
+✓ Student list uses real Supabase data.
+✓ No fake students exist.
+✓ Student profiles use real data.
+✓ Phone number is optional and private.
+✓ Student message is optional and comes from the student.
+✓ Progress is calculated from actual completed tasks.
+✓ Skills Learned are calculated from actual completed learning tasks.
+✓ Projects use real status.
+✓ Roadmap performance is dynamically calculated.
+✓ Completed tasks use actual completion timestamps.
+✓ Upcoming tasks are dynamically generated from incomplete tasks.
+✓ Student activity uses real database events.
+✓ Search works.
+✓ Filters work.
+✓ Sorting works.
+✓ Pagination is implemented where appropriate.
+✓ Admin can email the student.
+✓ Admin can call the student on supported devices.
+✓ Student contact information is not publicly exposed.
+✓ RLS protects student-owned data.
+✓ Administrator authorization is enforced server/database-side.
+✓ No service-role/secret key is exposed in frontend code.
+✓ No localStorage admin check exists.
+✓ No hard-coded administrator password exists.
+✓ No subjective student ranking exists.
+✓ Mobile admin UI works.
+✓ Loading states do not show fake data.
+✓ Empty states are intentional.
+✓ Error states are user-friendly.
+✓ Refresh preserves valid authentication.
+✓ Logout blocks protected routes.
+✓ Student data remains isolated.
+✓ Admin viewing a student never modifies their progress.
+✓ Existing student dashboard remains functional.
+✓ Existing branding is preserved.
+
+FINAL INSTRUCTION
+Before finishing:
+	1. Inspect the existing codebase.
+	2. Inspect the existing Supabase schema.
+	3. Reuse existing tables/components/routes wherever possible.
+	4. Implement the missing database fields/tables/migrations.
+	5. Implement secure administrator authorization.
+	6. Implement /admin/students.
+	7. Implement the detailed student profile.
+	8. Implement real performance calculations.
+	9. Implement private contact information.
+	10. Implement student messages.
+	11. Implement activity tracking if missing.
+	12. Implement search/filter/sorting/pagination.
+	13. Apply RLS and secure server-side authorization.
+	14. Test administrator login.
+	15. Test normal student access denial.
+	16. Test logout.
+	17. Test refresh.
+	18. Test real student performance.
+	19. Test privacy.
+	20. Test mobile responsiveness.
+	21. Fix any errors encountered.
+	22. Verify that no mock/fake data is being displayed as real data.
+DO NOT simply describe what should be implemented.
+Actually implement the changes in the existing project and leave the application in a working state.
+If an existing component or table already provides equivalent functionality, extend it instead of creating a duplicate.
+The final result should feel like a real production-ready AI career platform with a secure, private, database-backed administrator system.
+
+From <https://chatgpt.com/c/6ab41184-ef04-83e8-8e0b-4f685bcac9d4> 

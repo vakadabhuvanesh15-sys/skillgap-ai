@@ -1,0 +1,28 @@
+kind = "slides"
+previewPath = "/skillgap-ai-deck/"
+title = "SkillGap AI — Project Deck"
+description = "A product story for SkillGap AI, showing how college students move from current skills to career-ready proof through personalized gaps, roadmaps, projects, and progress."
+version = "1.0.0"
+id = "artifacts/skillgap-ai-deck"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/skillgap-ai-deck/" ]
+localPort = 21523
+
+[services.development]
+run = "pnpm --filter @workspace/skillgap-ai-deck run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/skillgap-ai-deck", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/skillgap-ai-deck/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21523"
+BASE_PATH = "/skillgap-ai-deck/"
